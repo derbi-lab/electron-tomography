@@ -1,0 +1,150 @@
+steps for proximity analysis:
+
+Phase-1: computing the arm centers in the raw subvolumes
+ 
+1.
+cat data-raw-with-fab.txt|grep 'set-1'>set-1.txt
+cat data-raw-with-fab.txt|grep 'set-2'>set-2.txt
+cat data-raw-with-fab.txt|grep 'set-3'>set-3.txt
+
+2.
+cat set-1.txt|grep 'SIV040'>set-1-SIV040.txt
+cat set-2.txt|grep 'SIV040'>set-2-SIV040.txt
+cat set-3.txt|grep 'SIV040'>set-3-SIV040.txt
+
+cat set-1.txt|grep 'SIV051'>set-1-SIV051.txt
+cat set-2.txt|grep 'SIV051'>set-2-SIV051.txt
+cat set-3.txt|grep 'SIV051'>set-3-SIV051.txt
+
+3.
+awk '{print $2+$5,$3+$6,$4+$7}'<set-1-SIV040.txt>center-set-1-SIV040.pos
+awk '{print $2+$5,$3+$6,$4+$7}'<set-1-SIV051.txt>center-set-1-SIV051.pos
+
+4.
+get the point of the center of the arm and save it as mat2.txt 
+
+( mat2.txt is computed by clicking in the center of one of the arms of global average. 
+Then make the mat2.txt matrix as ' x 0 0 y 0 0 z 0 0 '. This is because in i3 multiplaictaion of two matrices is only possible if they are of same 
+size and (probably) the data is stored in a column major format.)
+
+5.
+awk '{print $8,$9,$10,$11,$12,$13,$14,$15,$16}'<set-1-SIV040.txt>rot-set-1-SIV040.txt
+awk '{print $8,$9,$10,$11,$12,$13,$14,$15,$16}'<set-1-SIV051.txt>rot-set-1-SIV051.txt
+
+6. To compute the inverse of the rotation
+
+python i3_mat.py rot-set-1-SIV040.txt inv_rot-set-1-SIV040.txt
+python i3_mat.py rot-set-1-SIV051.txt inv_rot-set-1-SIV051.txt
+
+
+7.to compute the multiplication of inverse rotation matrix and the selceted point in the global average
+
+python i3_mul.py inv_rot-set-1-SIV040.txt mat2.txt out_rot-set-1-SIV040.txt
+python i3_mul.py inv_rot-set-1-SIV051.txt mat2.txt out_rot-set-1-SIV051.txt
+ 
+8.Compute the arm center (x ,y ,z position) of each subvolume
+
+awk '{print $1,$4,$7}'<out_rot-set-1-SIV040.txt>point_out_rot-set-1-SIV040.txt
+awk '{print $1,$4,$7}'<out_rot-set-1-SIV051.txt>point_out_rot-set-1-SIV051.txt
+ 
+
+9.
+scp point_out_rot-set-1-SIV040.txt tathagata@matrix.cs.fsu.edu:/home/tathagata/spike
+scp point_out_rot-set-1-SIV051.txt tathagata@matrix.cs.fsu.edu:/home/tathagata/spike
+scp center-set-1-SIV040.pos  tathagata@matrix.cs.fsu.edu:/home/tathagata/spike
+scp center-set-1-SIV051.pos  tathagata@matrix.cs.fsu.edu:/home/tathagata/spike
+
+10. run add_mat_vert.m ( this is just to add the centers of the subbolumes with the computed centers of the arms i.e, this gives the catual arm center for each subvolume)
+
+11.
+scp tathagata@matrix.cs.fsu.edu:/home/tathagata/spike/mapback-set-1-SIV040.txt .
+scp tathagata@matrix.cs.fsu.edu:/home/tathagata/spike/mapback-set-1-SIV051.txt .
+
+12.
+Rename the files as 
+
+cp mapback-set-1-SIV040.txt arm-center-set-1-SIV040.pos
+cp mapback-set-1-SIV051.txt arm-center-set-1-SIV051.pos
+ 
+These are the desired centers of the arms in the raw subvolumes
+
+
+
+cp /scratch/SIV_KT11_COMBINED_POLAR_SIDE/msa_trimetic/cycle-034-reduced/data-raw-SIV040-reduced.txt /scratch/SIV_KT11_COMBINED_POLAR_SIDE/msa_trimetic_symmetrized/cycle-000-proximity-after-reduction/same-class-analysis_040
+
+python join-new.py
+
+run get_index.m
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase-2: Figuring out which spikes are proximus
+
+12.
+scp center-set-1-SIV040.pos tathagata@matrix.cs.fsu.edu:/home/tathagata/spike/
+scp center-set-1-SIV051.pos tathagata@matrix.cs.fsu.edu:/home/tathagata/spike/
+
+12 a) run identifying_proximus_spikes.m
+
+13.
+scp tathagata@matrix.cs.fsu.edu:/home/tathagata/spike/proximity-spikes-global-set-1-SIV040.txt .
+scp tathagata@matrix.cs.fsu.edu:/home/tathagata/spike/proximity-spikes-global-set-1-SIV051.txt .
+
+14.
+scan the matrices proximity-spikes-global-set-1-SIV040.txt and proximity-spikes-global-set-1-SIV051.txt manually(trying to write a script) and get the indices of the proximus spikes.
+
+15.check the distances from DIST_global matrix in matlab. This  shows the distance between the centers of two proximus spikes.
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+**** Need tag for the tomograms, sets and the virions ---all together
+
+Now after symmetrization, the data-raw file does not have any tag for virions. It has only tag for the sets and the tomograms. Hence we need to tag the virions along with the sets and the tomograms.
+
+*) run index-spike.py
+*) data-raw-original-SIV040-spikes.txt is the list where the rows are ordered in  the oder of set1-SIV040.txt
+*) But here the shifts and the rotations are as in cycle47-symmetrize 
+*) Hence run replace.py to replace the shift and the rotations as in the set1-SIV040.txt and SIV040-spikes-final.txt is the final file 
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Phase-3:Proximity analysis of the arms 
+
+16. You need to identify which arms are pxoximus. Towards this first identify whether the proximus spikes belong to the same virion or from different virions. To this copy the data-raw.txt file from cycle-047-symmetrize.
+
+17. cat data-raw-original.txt| grep 'SIV040'>data-raw-original-SIV040.txt
+    cat data-raw-original.txt| grep 'SIV051'>data-raw-original-SIV051.txt
+18.
+awk '{print $2,$3,$4}'<data-raw-original-SIV040.txt>point-raw-original-SIV040.pos
+awk '{print $2,$3,$4}'<data-raw-original-SIV051.txt>point-raw-original-SIV051.pos
+
+19. scp point-raw-original-SIV040.pos tathagata@matrix.cs.fsu.edu:/home/tathagata/spike    
+    scp point-raw-original-SIV051.pos tathagata@matrix.cs.fsu.edu:/home/tathagata/spike
+
+20. from set-1-SIV040.txt copy only $2,$3,$4 of the relevant lines to the file exp-whole.pos
+ 
+21. scp exp-whole.pos tathagata@matrix.cs.fsu.edu:/home/tathagata/spike    
+
+22. run float_int.m
+
+23. scp tathagata@matrix.cs.fsu.edu:/home/tathagata/spike/index-delete-set1.txt .
+
+24. python deletelines_reverse.py
+
+25. check exp-test.txt if the points are from same virus or not.
+
+
+
+directory where you find the codes:
+
+/scratch/SIV_KT11_COMBINED/msa/SYMMETRIZE/msa/WITH_fab/msa/cycle-001-onlyfab-medium-factor0-19-proximity
+
+
+ 
+    
+
+

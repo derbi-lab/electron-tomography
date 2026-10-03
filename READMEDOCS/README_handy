@@ -1,0 +1,470 @@
+1. 
+awk '{if($18==18) print $2+$5+432,$3+$6+432,$4+$7+108}'<class-30.txt>cls-18.pos
+
+2.
+ awk '{if($18==29) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-29.pos
+ 
+ awk '{if($18==0) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-0.txt 
+ 
+ awk '{print $1,$2-432,$3-432,$4-108,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<data-raw.txt>data-raw-unfiltered.txt
+ 
+ 
+ 
+ 
+3.
+d -r -30 31 -pos cls-28.pos /scratch/SIV_KT11_051/SIV051_smp2.img
+
+4.
+i3exec.sh i3datalist siv-004.i3d siv-004-raw>data-raw.txt
+
+i3exec.sh i3datalist siv-010-ali.i3d siv-010-ali>data-ali.txt
+
+i3exec.sh i3datadel siv-010-ali.i3d siv-010-ali
+
+i3exec.sh i3dataimport -dim 3 siv-010-ali.i3d siv-010-ali result-all-reduced.txt
+
+i3exec.sh i3datalist -cls siv-022-class.i3d siv-022-class-020>class-20.txt
+
+i3compute test.img = siv-036-raw-totsum.img \* siv-036-msamask.img
+
+i3permute -perm 1 0 0 0 0 1 0 -1 0 test.img test-y.img
+
+i3compute siv-007-raw-totsum.img.inv = - siv-007-raw-totsum.img
+
+i3cut -fmt mrc siv-007-raw-totsum.img.inv siv-007-raw-totsum.img.inv.mrc
+
+cat 
+
+
+
+
+
+5.a)
+
+cat data-raw.txt | grep 'SIV051_vir01'>data-vir01.txt
+cat data-raw.txt | grep 'SIV051_vir02'>data-vir02.txt
+cat data-raw.txt | grep 'SIV051_vir03'>data-vir03.txt
+cat data-raw.txt | grep 'SIV051_vir04'>data-vir04.txt
+cat data-raw.txt | grep 'SIV051_vir05'>data-vir05.txt
+cat data-raw.txt | grep 'SIV051_vir06'>data-vir06.txt
+cat data-raw.txt | grep 'SIV051_vir07'>data-vir07.txt
+cat data-raw.txt | grep 'SIV051_vir08'>data-vir08.txt 
+cat data-raw.txt | grep 'SIV051_vir09'>data-vir09.txt
+cat data-raw.txt | grep 'SIV051_vir10'>data-vir10.txt
+cat data-raw.txt | grep 'SIV051_vir11'>data-vir11.txt
+cat data-raw.txt | grep 'SIV051_vir12'>data-vir12.txt
+cat data-raw.txt | grep 'SIV051_vir13'>data-vir13.txt
+cat data-raw.txt | grep 'SIV051_vir14'>data-vir14.txt
+cat data-raw.txt | grep 'SIV051_vir15'>data-vir15.txt
+cat data-raw.txt | grep 'SIV051_vir16'>data-vir16.txt
+cat data-raw.txt | grep 'SIV051_vir17'>data-vir17.txt
+cat data-raw.txt | grep 'SIV051_vir18'>data-vir18.txt
+cat data-raw.txt | grep 'SIV051_vir19'>data-vir19.txt
+cat data-raw.txt | grep 'SIV051_vir20'>data-vir20.txt
+cat data-raw.txt | grep 'SIV051_vir21'>data-vir21.txt
+cat data-raw.txt | grep 'SIV051_vir22'>data-vir22.txt
+cat data-raw.txt | grep 'SIV051_vir23'>data-vir23.txt
+
+
+b)
+
+cat data-raw.txt | grep 'SIV040_vir01'>data-vir01.txt
+cat data-raw.txt | grep 'SIV040_vir02'>data-vir02.txt
+cat data-raw.txt | grep 'SIV040_vir03'>data-vir03.txt
+cat data-raw.txt | grep 'SIV040_vir04'>data-vir04.txt
+cat data-raw.txt | grep 'SIV040_vir05'>data-vir05.txt
+cat data-raw.txt | grep 'SIV040_vir06'>data-vir06.txt
+cat data-raw.txt | grep 'SIV040_vir07'>data-vir07.txt
+cat data-raw.txt | grep 'SIV040_vir08'>data-vir08.txt 
+cat data-raw.txt | grep 'SIV040_vir09'>data-vir09.txt
+cat data-raw.txt | grep 'SIV040_vir10'>data-vir10.txt
+cat data-raw.txt | grep 'SIV040_vir11'>data-vir11.txt
+cat data-raw.txt | grep 'SIV040_vir12'>data-vir12.txt
+cat data-raw.txt | grep 'SIV040_vir13'>data-vir13.txt
+cat data-raw.txt | grep 'SIV040_vir14'>data-vir14.txt
+cat data-raw.txt | grep 'SIV040_vir15'>data-vir15.txt
+cat data-raw.txt | grep 'SIV040_vir16'>data-vir16.txt
+cat data-raw.txt | grep 'SIV040_vir17'>data-vir17.txt
+cat data-raw.txt | grep 'SIV040_vir18'>data-vir18.txt
+cat data-raw.txt | grep 'SIV040_vir19'>data-vir19.txt
+
+6.a)
+ 
+cat data-ali.txt | grep 'SIV051_vir01'>data-vir01.txt
+cat data-ali.txt | grep 'SIV051_vir02'>data-vir02.txt
+cat data-ali.txt | grep 'SIV051_vir03'>data-vir03.txt
+cat data-ali.txt | grep 'SIV051_vir04'>data-vir04.txt
+cat data-ali.txt | grep 'SIV051_vir05'>data-vir05.txt
+cat data-ali.txt | grep 'SIV051_vir06'>data-vir06.txt
+cat data-ali.txt | grep 'SIV051_vir07'>data-vir07.txt
+cat data-ali.txt | grep 'SIV051_vir08'>data-vir08.txt 
+cat data-ali.txt | grep 'SIV051_vir09'>data-vir09.txt
+cat data-ali.txt | grep 'SIV051_vir10'>data-vir10.txt
+cat data-ali.txt | grep 'SIV051_vir11'>data-vir11.txt
+cat data-ali.txt | grep 'SIV051_vir12'>data-vir12.txt
+cat data-ali.txt | grep 'SIV051_vir13'>data-vir13.txt
+cat data-ali.txt | grep 'SIV051_vir14'>data-vir14.txt
+cat data-ali.txt | grep 'SIV051_vir15'>data-vir15.txt
+cat data-ali.txt | grep 'SIV051_vir16'>data-vir16.txt
+cat data-ali.txt | grep 'SIV051_vir17'>data-vir17.txt
+cat data-ali.txt | grep 'SIV051_vir18'>data-vir18.txt
+cat data-ali.txt | grep 'SIV051_vir19'>data-vir19.txt
+cat data-ali.txt | grep 'SIV051_vir20'>data-vir20.txt
+cat data-ali.txt | grep 'SIV051_vir21'>data-vir21.txt
+cat data-ali.txt | grep 'SIV051_vir22'>data-vir22.txt
+cat data-ali.txt | grep 'SIV051_vir23'>data-vir23.txt
+
+b)
+
+cat data-ali.txt | grep 'SIV040_vir01'>data-vir01.txt
+cat data-ali.txt | grep 'SIV040_vir02'>data-vir02.txt
+cat data-ali.txt | grep 'SIV040_vir03'>data-vir03.txt
+cat data-ali.txt | grep 'SIV040_vir04'>data-vir04.txt
+cat data-ali.txt | grep 'SIV040_vir05'>data-vir05.txt
+cat data-ali.txt | grep 'SIV040_vir06'>data-vir06.txt
+cat data-ali.txt | grep 'SIV040_vir07'>data-vir07.txt
+cat data-ali.txt | grep 'SIV040_vir08'>data-vir08.txt 
+cat data-ali.txt | grep 'SIV040_vir09'>data-vir09.txt
+cat data-ali.txt | grep 'SIV040_vir10'>data-vir10.txt
+cat data-ali.txt | grep 'SIV040_vir11'>data-vir11.txt
+cat data-ali.txt | grep 'SIV040_vir12'>data-vir12.txt
+cat data-ali.txt | grep 'SIV040_vir13'>data-vir13.txt
+cat data-ali.txt | grep 'SIV040_vir14'>data-vir14.txt
+cat data-ali.txt | grep 'SIV040_vir15'>data-vir15.txt
+cat data-ali.txt | grep 'SIV040_vir16'>data-vir16.txt
+cat data-ali.txt | grep 'SIV040_vir17'>data-vir17.txt
+cat data-ali.txt | grep 'SIV040_vir18'>data-vir18.txt
+cat data-ali.txt | grep 'SIV040_vir19'>data-vir19.txt
+
+7.
+for i in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23; do
+awk '{print $2+$5,$3+$6,$4+$7}'<data-vir${i}.txt>vir${i}.pos
+done
+
+
+for i in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19; do
+mv data-vir${i}.txt SIV040_vir${i}.trf
+done
+
+
+scp vir??.pos tathagata@matrix.cs.fsu.edu:/home/tathagata/spike
+
+scp tathagata@matrix.cs.fsu.edu:/home/tathagata/spike/pts-indx-SIV051-vir-??.txt .
+
+
+8. a)
+
+awk '{if($18==0) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-0.pos
+awk '{if($18==1) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-1.pos
+awk '{if($18==2) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-2.pos
+awk '{if($18==3) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-3.pos
+awk '{if($18==4) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-4.pos
+awk '{if($18==5) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-5.pos
+awk '{if($18==6) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-6.pos
+awk '{if($18==7) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-7.pos
+awk '{if($18==8) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-8.pos
+awk '{if($18==9) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-9.pos
+awk '{if($18==10) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-10.pos
+awk '{if($18==11) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-11.pos
+awk '{if($18==12) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-12.pos
+awk '{if($18==13) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-13.pos
+awk '{if($18==14) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-14.pos
+awk '{if($18==15) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-15.pos
+awk '{if($18==16) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-16.pos
+awk '{if($18==17) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-17.pos
+awk '{if($18==18) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-18.pos
+awk '{if($18==19) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-19.pos
+awk '{if($18==20) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-20.pos
+awk '{if($18==21) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-21.pos
+awk '{if($18==22) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-22.pos
+awk '{if($18==23) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-23.pos
+awk '{if($18==24) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-24.pos
+awk '{if($18==25) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-25.pos
+awk '{if($18==26) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-26.pos
+awk '{if($18==27) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-27.pos
+awk '{if($18==28) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-28.pos
+awk '{if($18==29) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-30.txt>cls-29.pos
+
+b)
+awk '{if($18==0) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-0.pos
+awk '{if($18==1) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-1.pos
+awk '{if($18==2) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-2.pos
+awk '{if($18==3) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-3.pos
+awk '{if($18==4) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-4.pos
+awk '{if($18==5) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-5.pos
+awk '{if($18==6) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-6.pos
+awk '{if($18==7) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-7.pos
+awk '{if($18==8) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-8.pos
+awk '{if($18==9) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-9.pos
+awk '{if($18==10) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-10.pos
+awk '{if($18==11) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-11.pos
+awk '{if($18==12) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-12.pos
+awk '{if($18==13) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-13.pos
+awk '{if($18==14) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-14.pos
+awk '{if($18==15) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-15.pos
+awk '{if($18==16) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-16.pos
+awk '{if($18==17) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-17.pos
+awk '{if($18==18) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-18.pos
+awk '{if($18==19) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-20.txt>cls-19.pos
+
+
+
+c)
+
+awk '{if($18==0) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-0.pos
+awk '{if($18==1) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-1.pos
+awk '{if($18==2) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-2.pos
+awk '{if($18==3) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-3.pos
+awk '{if($18==4) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-4.pos
+awk '{if($18==5) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-5.pos
+awk '{if($18==6) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-6.pos
+awk '{if($18==7) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-7.pos
+awk '{if($18==8) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-8.pos
+awk '{if($18==9) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-9.pos
+awk '{if($18==10) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-10.pos
+awk '{if($18==11) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-11.pos
+awk '{if($18==12) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-12.pos
+awk '{if($18==13) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-13.pos
+awk '{if($18==14) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-14.pos
+awk '{if($18==15) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-15.pos
+awk '{if($18==16) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-16.pos
+awk '{if($18==17) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-17.pos
+awk '{if($18==18) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-18.pos
+awk '{if($18==19) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-19.pos
+awk '{if($18==20) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-20.pos
+awk '{if($18==21) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-21.pos
+awk '{if($18==22) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-22.pos
+awk '{if($18==23) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-23.pos
+awk '{if($18==24) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-24.pos
+awk '{if($18==25) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-25.pos
+awk '{if($18==26) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-26.pos
+awk '{if($18==27) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-27.pos
+awk '{if($18==28) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-28.pos
+awk '{if($18==29) print ($2+$5),($3+$6),($4+$7)}'<class-30.txt>cls-29.pos
+
+
+d)
+awk '{if($18==0) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-0.pos
+awk '{if($18==1) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-1.pos
+awk '{if($18==2) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-2.pos
+awk '{if($18==3) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-3.pos
+awk '{if($18==4) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-4.pos
+awk '{if($18==5) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-5.pos
+awk '{if($18==6) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-6.pos
+awk '{if($18==7) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-7.pos
+awk '{if($18==8) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-8.pos
+awk '{if($18==9) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-9.pos
+awk '{if($18==10) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-10.pos
+awk '{if($18==11) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-11.pos
+awk '{if($18==12) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-12.pos
+awk '{if($18==13) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-13.pos
+awk '{if($18==14) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-14.pos
+awk '{if($18==15) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-15.pos
+awk '{if($18==16) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-16.pos
+awk '{if($18==17) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-17.pos
+awk '{if($18==18) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-18.pos
+awk '{if($18==19) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-19.pos
+awk '{if($18==20) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-20.pos
+awk '{if($18==21) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-21.pos
+awk '{if($18==22) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-22.pos
+awk '{if($18==23) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-23.pos
+awk '{if($18==24) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-24.pos
+awk '{if($18==25) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-25.pos
+awk '{if($18==26) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-26.pos
+awk '{if($18==27) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-27.pos
+awk '{if($18==28) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-28.pos
+awk '{if($18==29) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-30.txt>cls-29.pos
+
+e)
+
+awk '{if($18==0) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-0.pos
+awk '{if($18==1) print ($2+$5)+432,($3+$6)432,($4+$7)+108}'<class-20.txt>cls-1.pos
+awk '{if($18==2) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-2.pos
+awk '{if($18==3) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-3.pos
+awk '{if($18==4) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-4.pos
+awk '{if($18==5) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-5.pos
+awk '{if($18==6) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-6.pos
+awk '{if($18==7) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-7.pos
+awk '{if($18==8) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-8.pos
+awk '{if($18==9) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-9.pos
+awk '{if($18==10) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-10.pos
+awk '{if($18==11) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-11.pos
+awk '{if($18==12) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-12.pos
+awk '{if($18==13) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-13.pos
+awk '{if($18==14) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-14.pos
+awk '{if($18==15) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-15.pos
+awk '{if($18==16) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-16.pos
+awk '{if($18==17) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-17.pos
+awk '{if($18==18) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-18.pos
+awk '{if($18==19) print ($2+$5)+432,($3+$6)+432,($4+$7)+108}'<class-20.txt>cls-19.pos
+
+f)
+awk '{if($18==0) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-0.txt
+awk '{if($18==1) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-1.txt
+awk '{if($18==2) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-2.txt
+awk '{if($18==3) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-3.txt
+awk '{if($18==4) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-4.txt
+awk '{if($18==5) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-5.txt
+awk '{if($18==6) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-6.txt
+awk '{if($18==7) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-7.txt
+awk '{if($18==8) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-8.txt
+awk '{if($18==9) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-9.txt
+awk '{if($18==10) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-10.txt
+awk '{if($18==11) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-11.txt
+awk '{if($18==12) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-12.txt
+awk '{if($18==13) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-13.txt
+awk '{if($18==14) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-14.txt
+awk '{if($18==15) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-15.txt
+awk '{if($18==16) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-16.txt
+awk '{if($18==17) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-17.txt
+awk '{if($18==18) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-18.txt
+awk '{if($18==19) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-20.txt>cls-19.txt
+
+g)
+awk '{if($18==0) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-0.txt
+awk '{if($18==1) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-1.txt
+awk '{if($18==2) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-2.txt
+awk '{if($18==3) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-3.txt
+awk '{if($18==4) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-4.txt
+awk '{if($18==5) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-5.txt
+awk '{if($18==6) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-6.txt
+awk '{if($18==7) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-7.txt
+awk '{if($18==8) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-8.txt
+awk '{if($18==9) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-9.txt
+awk '{if($18==10) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-10.txt
+awk '{if($18==11) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-11.txt
+awk '{if($18==12) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-12.txt
+awk '{if($18==13) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-13.txt
+awk '{if($18==14) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-14.txt
+awk '{if($18==15) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-15.txt
+awk '{if($18==16) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-16.txt
+awk '{if($18==17) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-17.txt
+awk '{if($18==18) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-18.txt
+awk '{if($18==19) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-19.txt
+awk '{if($18==20) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-20.txt
+awk '{if($18==21) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-21.txt
+awk '{if($18==22) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-22.txt
+awk '{if($18==23) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-23.txt
+awk '{if($18==24) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-24.txt
+awk '{if($18==25) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-25.txt
+awk '{if($18==26) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-26.txt
+awk '{if($18==27) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-27.txt
+awk '{if($18==28) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-28.txt
+awk '{if($18==29) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-30.txt>cls-29.txt
+
+
+h)
+awk '{if($18==0) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-0.pos
+awk '{if($18==1) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-1.pos
+awk '{if($18==2) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-2.pos
+awk '{if($18==3) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-3.pos
+awk '{if($18==4) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-4.pos
+awk '{if($18==5) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-5.pos
+awk '{if($18==6) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-6.pos
+awk '{if($18==7) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-7.pos
+awk '{if($18==8) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-8.pos
+awk '{if($18==9) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-9.pos
+awk '{if($18==10) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-10.pos
+awk '{if($18==11) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-11.pos
+awk '{if($18==12) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-12.pos
+awk '{if($18==13) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-13.pos
+awk '{if($18==14) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-14.pos
+awk '{if($18==15) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-15.pos
+awk '{if($18==16) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-16.pos
+awk '{if($18==17) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-17.pos
+awk '{if($18==18) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-18.pos
+awk '{if($18==19) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-19.pos
+awk '{if($18==20) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-20.pos
+awk '{if($18==21) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-21.pos
+awk '{if($18==22) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-22.pos
+awk '{if($18==23) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-23.pos
+awk '{if($18==24) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-24.pos
+awk '{if($18==25) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-25.pos
+awk '{if($18==26) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-26.pos
+awk '{if($18==27) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-27.pos
+awk '{if($18==28) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-28.pos
+awk '{if($18==29) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-29.pos
+awk '{if($18==30) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-30.pos
+awk '{if($18==31) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-31.pos
+awk '{if($18==32) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-32.pos
+awk '{if($18==33) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-33.pos
+awk '{if($18==34) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-34.pos
+awk '{if($18==35) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-35.pos
+awk '{if($18==36) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-36.pos
+awk '{if($18==37) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-37.pos
+awk '{if($18==38) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-38.pos
+awk '{if($18==39) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-39.pos
+awk '{if($18==40) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-40.pos
+awk '{if($18==41) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-41.pos
+awk '{if($18==42) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-42.pos
+awk '{if($18==43) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-43.pos
+awk '{if($18==44) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-44.pos
+awk '{if($18==45) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-45.pos
+awk '{if($18==46) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-46.pos
+awk '{if($18==47) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-47.pos
+awk '{if($18==48) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-48.pos
+awk '{if($18==49) print ($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108}'<class-50.txt>cls-49.pos
+
+
+i)
+
+awk '{if($18==0) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-0.txt
+awk '{if($18==1) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-1.txt
+awk '{if($18==2) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-2.txt
+awk '{if($18==3) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-3.txt
+awk '{if($18==4) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-4.txt
+awk '{if($18==5) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-5.txt
+awk '{if($18==6) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-6.txt
+awk '{if($18==7) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-7.txt
+awk '{if($18==8) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-8.txt
+awk '{if($18==9) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-9.txt
+awk '{if($18==10) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-10.txt
+awk '{if($18==11) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-11.txt
+awk '{if($18==12) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-12.txt
+awk '{if($18==13) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-13.txt
+awk '{if($18==14) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-14.txt
+awk '{if($18==15) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-15.txt
+awk '{if($18==16) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-16.txt
+awk '{if($18==17) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-17.txt
+awk '{if($18==18) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-18.txt
+awk '{if($18==19) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-19.txt
+awk '{if($18==20) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-20.txt
+awk '{if($18==21) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-21.txt
+awk '{if($18==22) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-22.txt
+awk '{if($18==23) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-23.txt
+awk '{if($18==24) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-24.txt
+awk '{if($18==25) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-25.txt
+awk '{if($18==26) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-26.txt
+awk '{if($18==27) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-27.txt
+awk '{if($18==28) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-28.txt
+awk '{if($18==29) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-29.txt
+awk '{if($18==30) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-30.txt
+awk '{if($18==31) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-31.txt
+awk '{if($18==32) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-32.txt
+awk '{if($18==33) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-33.txt
+awk '{if($18==34) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-34.txt
+awk '{if($18==35) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-35.txt
+awk '{if($18==36) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-36.txt
+awk '{if($18==37) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-37.txt
+awk '{if($18==38) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-38.txt
+awk '{if($18==39) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-39.txt
+awk '{if($18==40) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-40.txt
+awk '{if($18==41) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-41.txt
+awk '{if($18==42) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-42.txt
+awk '{if($18==43) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-43.txt
+awk '{if($18==44) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-44.txt
+awk '{if($18==45) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-45.txt
+awk '{if($18==46) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-46.txt
+awk '{if($18==47) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-47.txt
+awk '{if($18==48) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-48.txt
+awk '{if($18==49) print($2+$5)/2+432,($3+$6)/2+432,($4+$7)/2+108,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16 }'<class-50.txt>cls-49.txt
+
+
+k)
+cat cls-0.txt cls-1.txt cls-2.txt cls-3.txt cls-4.txt cls-5.txt cls-6.txt cls-7.txt cls-8.txt cls-9.txt cls-10.txt cls-11.txt cls-12.txt cls-13.txt cls-14.txt cls-15.txt cls-16.txt cls-17.txt cls-18.txt cls-19.txt cls-20.txt cls-21.txt cls-22.txt cls-23.txt cls-24.txt cls-25.txt cls-26.txt cls-27.txt cls-28.txt cls-29.txt cls-30.txt cls-31.txt cls-32.txt cls-33.txt cls-34.txt cls-35.txt cls-36.txt cls-37.txt cls-38.txt cls-39.txt cls-40.txt cls-41.txt cls-42.txt cls-43.txt cls-44.txt cls-45.txt cls-46.txt cls-47.txt cls-48.txt cls-49.txt>cls-all.txt
+
+l)
+
+cat cls-0.pos cls-1.pos cls-2.pos SIV-cls-3.pos.reduced cls-4.pos cls-5.pos cls-6.pos cls-7.pos cls-8.pos SIV-cls-9.pos.reduced cls-10.pos cls-11.pos cls-12.pos cls-13.pos cls-14.pos cls-15.pos cls-16.pos cls-17.pos cls-18.pos cls-19.pos SIV-cls-20.pos.reduced SIV-cls-21.pos.reduced SIV-cls-22.pos.reduced cls-23.pos cls-24.pos SIV-cls-25.pos.reduced cls-26.pos cls-27.pos SIV-cls-28.pos.reduced cls-29.pos SIV-cls-30.pos.reduced cls-31.pos cls-32.pos SIV-cls-33.pos.reduced cls-34.pos cls-35.pos cls-36.pos cls-37.pos cls-38.pos SIV-cls-39.pos.reduced SIV-cls-40.pos.reduced cls-41.pos SIV-cls-42.pos.reduced cls-43.pos cls-44.pos SIV-cls-45.pos.reduced cls-46.pos cls-47.pos cls-48.pos cls-49.pos>cls-all.pos.reduced
+
+

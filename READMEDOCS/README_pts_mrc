@@ -1,0 +1,13 @@
+Zhongjun's python script for pointsto mrc conversion
+
+(1) download both into one directory
+(2) i3new -s 320 320 320 -fmt mrc finalpos.mrc
+(3) ./pos_paste.py  file.pos  finalpos.mrc small2.mrc
+(4) proc3d finalpos.mrc filalpos_en2.mrc scale=2 clip=640,640,640
+(5) proc3d filalpos_en2.mrc filalpos_en2_lp100.mrc lp=100
+
+explaination:
+
+1.  currently, the program only accept postive number
+2. size (320) should be larger than your max coordinate in pos file
+3. small2.mrc is a 3X3X3 cubic dhensity map

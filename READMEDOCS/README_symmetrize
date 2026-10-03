@@ -1,0 +1,56 @@
+To create 3-fold symmetry:
+
+1)get the rotation matrices:
+
+rot_mat_z_120.txt : -0.5000 -0.8660 0 0.8660 -0.5000 0 0 0 1
+rot_mat_z_240.txt : -0.5000 0.8660 0 -0.8660 -0.5000 0 0 0 1
+
+2)pull out the rotation matrix using the following command:
+
+awk '{print $8,$9,$10,$11,$12,$13,$14,$15,$16}'<data-raw.txt>rot.txt
+
+
+3)premultiply the rot.txt matrix with  rot_mat_z_120.txt and rot_mat_z_240.txt one by one. the output is saved as out-120.txt and out-240.txt. The python script is i3_mul.py. 
+
+The usage is :
+
+python i3_mul.py rot_mat_z_120.txt rot.txt out-120.txt
+python i3_mul.py rot_mat_z_240.txt rot.txt out-240.txt
+
+4) Now you can check that this script really rotating the original orientation to 120 and 240 degrees respective using the script i3_mat.py
+
+The usage is :
+
+python i3_mat.py rot.txt angle-0.txt
+python i3_mat.py out-120.txt angle-120.txt
+python i3_mat.py out-240.txt angle-240.txt
+
+5) Now replace the rotated 3X3 matrix in the original data-raw.txt file using
+
+python replace.py
+
+ Get the outputs as data-raw-120.txt and data-raw-240.txt
+
+Then separate out the 'SIV040' and 'SIV051' using the script:
+
+cat data-raw.txt|grep 'SIV040'>data-raw-SIV040.txt
+cat data-raw.txt|grep 'SIV051'>data-raw-SIV051.txt
+
+cat data-raw-120.txt|grep 'SIV040'>data-raw-120-SIV040.txt
+cat data-raw-120.txt|grep 'SIV051'>data-raw-120-SIV051.txt
+
+cat data-raw-240.txt|grep 'SIV040'>data-raw-240-SIV040.txt
+cat data-raw-240.txt|grep 'SIV051'>data-raw-240-SIV051.txt 
+
+6) Now you need to make 3 different sets for each of the tomograms....1) no rotation, 2) 120 degrees rotation, 3) 240 degrees rotation.
+
+So run the script join.py 3 times (for set1 ,2 nd 3) for SIV040 and 3 times for SIV051.
+
+Now run replace-new.py six times, three times for SIV040 and three times for SIV051.
+
+7) Now rename this directory as cycle-047-symmetrize for example and start a new alignment cycle by changing the trfs and defs/sets
+
+
+
+
+ 

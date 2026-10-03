@@ -1,0 +1,36 @@
+1. cd /scratch/SIV_KT11_COMBINED/msa/cycle-046/siv-046-class-020
+2. cp ../../cycle-020/siv-020-class-020/tomo-filter-loop.sh .
+3. ./tomo-filter-loop.sh
+4. 
+
+i3montage -col 10 -sep 2 -pad 2 -val 1 -in -0.596873 0.537955 -t uint8 020-000.avg.flt 020-001.avg.flt 020-002.avg.flt 020-003.avg.flt 020-004.avg.flt 020-005.avg.flt 020-006.avg.flt 020-007.avg.flt 020-008.avg.flt 020-009.avg.flt 020-010.avg.flt 020-011.avg.flt 020-012.avg.flt 020-013.avg.flt 020-014.avg.flt 020-015.avg.flt 020-016.avg.flt 020-017.avg.flt 020-018.avg.flt 020-019.avg.flt test-montage.img.flt
+
+5. cp test-montage.img.flt ../TIFF/
+
+6. cd ../TIFF/
+
+7. cp ../../cycle-020/TIFF/*.sh .
+
+8. ./tiff-driver.sh
+
+9. 
+i3concat -dim 3 test-montage00.tif test-montage01.tif test-montage02.tif test-montage03.tif test-montage04.tif test-montage05.tif test-montage06.tif test-montage07.tif test-montage08.tif test-montage09.tif test-montage10.tif test-montage11.tif test-montage12.tif test-montage13.tif test-montage14.tif test-montage15.tif test-montage16.tif test-montage17.tif test-montage18.tif test-montage19.tif test-montage20.tif test-montage21.tif test-montage22.tif test-montage23.tif test-montage24.tif test-montage25.tif test-montage26.tif test-montage27.tif test-montage28.tif test-montage29.tif test-montage30.tif test-montage31.tif test-montage32.tif test-montage33.tif test-montage34.tif test-montage35.tif test-montage36.tif test-montage37.tif test-montage38.tif test-montage39.tif test-montage40.tif test-montage41.tif test-montage42.tif test-montage43.tif test-montage44.tif test-montage45.tif test-montage46.tif test-montage47.tif test-montage48.tif test-montage49.tif test-montage50.tif test-montage51.tif test-montage52.tif test-montage53.tif test-montage54.tif test-montage55.tif test-montage56.tif test-montage57.tif test-montage58.tif test-montage59.tif test-montage60.tif test-montage61.tif test-montage62.tif test-montage63.tif panel-C.tif
+
+
+
+_______________________________________________________________________________
+
+
+ i3montage -col 10 -sep 2 -pad 2 -val 1 -in -0.807049 0.725122 -t uint8 030-000-y.avg.flt 030-001-y.avg.flt 030-002-y.avg.flt 030-003-y.avg.flt 030-004-y.avg.flt 030-005-y.avg.flt 030-006-y.avg.flt 030-007-y.avg.flt 030-008-y.avg.flt 030-009-y.avg.flt 030-010-y.avg.flt 030-011-y.avg.flt 030-012-y.avg.flt 030-013-y.avg.flt 030-014-y.avg.flt 030-015-y.avg.flt 030-016-y.avg.flt 030-017-y.avg.flt 030-018-y.avg.flt 030-019-y.avg.flt 030-020-y.avg.flt 030-021-y.avg.flt 030-022-y.avg.flt 030-023-y.avg.flt 030-024-y.avg.flt 030-025-y.avg.flt 030-026-y.avg.flt 030-027-y.avg.flt 030-028-y.avg.flt 030-029-y.avg.flt test-montage-y.img.flt
+ 
+ 3montage -col 10 -sep 2 -pad 2 -val 1 -in -0.807049 0.725122 -t uint8 030-000.avg.flt 030-001.avg.flt 030-002.avg.flt 030-003.avg.flt 030-004.avg.flt 030-005.avg.flt 030-006.avg.flt 030-007.avg.flt 030-008.avg.flt 030-009.avg.flt 030-010.avg.flt 030-011.avg.flt 030-012.avg.flt 030-013.avg.flt 030-014.avg.flt 030-015.avg.flt 030-016.avg.flt 030-017.avg.flt 030-018.avg.flt 030-019.avg.flt 030-020.avg.flt 030-021.avg.flt 030-022.avg.flt 030-023.avg.flt 030-024.avg.flt 030-025.avg.flt 030-026.avg.flt 030-027.avg.flt 030-028.avg.flt 030-029.avg.flt test-montage.img.flt
+ 
+ ./tiff-driver.sh
+ 
+ i3concat -dim 3 test-montage00.tif test-montage01.tif test-montage02.tif test-montage03.tif test-montage04.tif test-montage05.tif test-montage06.tif test-montage07.tif test-montage08.tif test-montage09.tif test-montage10.tif test-montage11.tif test-montage12.tif test-montage13.tif test-montage14.tif test-montage15.tif test-montage16.tif test-montage17.tif test-montage18.tif test-montage19.tif test-montage20.tif test-montage21.tif test-montage22.tif test-montage23.tif test-montage24.tif test-montage25.tif test-montage26.tif test-montage27.tif test-montage28.tif test-montage29.tif test-montage30.tif test-montage31.tif panel-E-flt.tif
+ 
+ 
+ i3concat -dim 3 test-montage-y00.tif test-montage-y01.tif test-montage-y02.tif test-montage-y03.tif test-montage-y04.tif test-montage-y05.tif test-montage-y06.tif test-montage-y07.tif test-montage-y08.tif test-montage-y09.tif test-montage-y10.tif test-montage-y11.tif test-montage-y12.tif test-montage-y13.tif test-montage-y14.tif test-montage-y15.tif test-montage-y16.tif test-montage-y17.tif test-montage-y18.tif test-montage-y19.tif test-montage-y20.tif test-montage-y21.tif test-montage-y22.tif test-montage-y23.tif test-montage-y24.tif test-montage-y25.tif test-montage-y26.tif test-montage-y27.tif test-montage-y28.tif test-montage-y29.tif test-montage-y30.tif test-montage-y31.tif panel-E-y-flt.tif
+ 
+ 
+ 
